@@ -7,21 +7,20 @@
 //
 
 import Cocoa
+import SpriteKit
 
 class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+        
+        if let skView = self.view as? SKView {
+            let gameScene = GameScene(size: skView.bounds.size)
+            gameScene.scaleMode = .aspectFill
+            skView.presentScene(gameScene)
         }
-    }
 
+    }
 
 }
 
